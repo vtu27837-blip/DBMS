@@ -1,0 +1,30 @@
+CREATE (node:label { key1: value, key2: value, . . . . . . . . . }) 
+Returning the Created Node
+To verify the creation of the node, type and execute the following query in the dollar 
+prompt.
+MATCH (n) RETURN n 
+Creating Relationships
+We can create a relationship using the CREATE clause. We will specify relationship 
+within the square braces “[ ]” depending on the direction of the relationship it is 
+placed between hyphen “ - ” and arrow “ → ” as shown in the following syntax.
+Syntax
+Following is the syntax to create a relationship using the CREATE clause.
+CREATE (node1)-[:RelationshipType]->(node2) 
+Creating a Relationship Between the Existing Nodes
+You can also create a relationship between the existing nodes using 
+the MATCH clause.
+Syntax
+Following is the syntax to create a relationship using the MATCH clause.
+MATCH (a:LabeofNode1), (b:LabeofNode2) 
+WHERE a.name = "nameofnode1" AND b.name = " nameofnode2"
+CREATE (a)-[: Relation]->(b) 
+RETURN a,b 
+Deleting a Particular Node
+To delete a particular node, you need to specify the details of the node in the place of 
+“n” in the above query.
+Syntax
+Following is the syntax to delete a particular node from Neo4j using the DELETE 
+clause.
+MATCH (node:label {properties . . . . . . . . . . }) 
+DETACH DELETE node
+Create a graph database for student course registration, create student and dept node 
