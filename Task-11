@@ -1,0 +1,34 @@
+Open the "Form Builder" tool.
+Welcome window
+You will get the Welcome to the Form Builder window.
+Use the data Block Wizard, ( Tools
+Data block wizard )
+You will get welcome to the the data block wizard
+Next
+table or view
+Enter the table name EMP
+Refresh
+provide connection details ( user name , password and host string )
+Move all the columns from available columns to database items
+Data block name ( let it be same as table name )
+create data block then call layout 
+wizard
+finish.
+We are done with datablock wizard , You will get welcome to layout wizard
+Canvas ( new canvas ) Type content
+Next
+Move all items from available items to displayed 
+items
+Next
+Next
+Select form
+Frame tile Emp Details
+Next
+Finish
+We are done with layout wizard
+Go to File - Save As - Create new folder in desktop with the name MY_FORMS
+Save the file with the name EMP_FORM.fmb
+Important is to observe the object navigator ( Press F3 )
+You can see under forms your form name i.e. EMP_FORM
+Under form, data block is created i.e. EMP ( Data block refers to table )
+Under data block, i.e. you find Item ( Item refers to columns in the t
