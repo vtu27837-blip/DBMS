@@ -1,0 +1,85 @@
+STEP 2: INITIALIZE arr[]= {1, 2, 3, 4, 2, 7, 8, 8, 3}.
+STEP 3: length = sizeof(arr)/sizeof(arr[0])
+STEP 4: PRINT "Duplicate elements in given array:"
+STEP 5: SET i=0. REPEAT STEP 6 to STEP 9 UNTIL i<length
+STEP 6: SET j=i+1. REPEAT STEP 7 and STEP 8 UNTIL i<length
+STEP 7: if(arr[i] == arr[j])
+              PRINT arr[j]
+STEP 8: j=j+1
+STEP 9: i+1.
+STEP 10: RETURN 0.
+STEP 11: END
+PROGRAM:
+#include <stdio.h>
+
+int main()
+{
+int num;
+int arr[10];
+printf("enter the number of ids:");
+scanf("%d",&num);
+printf("Enter the id's:");
+for(int i=0;i<num;i++)
+{
+scanf("%d",&arr[i]);
+}
+   //Calculate length of array arr
+    int length = sizeof(arr)/sizeof(arr[0]);
+
+    printf("Duplicate elements in given array: \n");
+    //Searches for duplicate element
+    for(int i = 0; i < length; i++) {
+        for(int j = i + 1; j < length; j++) {
+            if(arr[i] == arr[j])
+                printf("%d\n", arr[j]);
+        }
+    }
+    return 0;include<stdio.h> 
+int main()
+{
+int n,i,sum=0,c,start,end,noMissing=0; 
+printf("\nEnter number of elements in an array:"); 
+scanf("%d",&n);
+int a[n];
+printf("\nEnter %d elements in array:\n",n); 
+for(i = 0;i < n;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("\nEnter Start and End values:\n"); 
+scanf("%d\n%d",&start,&end);
+printf("\nMissing elements in a range of %d to %d :\n",start,end); 
+while(start<=end)
+{
+c=0;
+for(i = 0;i < n;i++)
+{
+if(start==a[i])
+{
+c=1;
+break;
+}
+}
+if(c==0)
+{
+printf("%d ",start);
+ noMissing=1;
+}
+start++;
+}
+if(noMissing==0)
+printf("\-1");
+}
+
+
+OUTPUT:
+Enter number of elements in an array:5
+
+Enter 5 elements in array:
+3
+4
+5
+7
+8
+
+Enter Start and End values:
