@@ -1,0 +1,51 @@
+CREATE OR REPLACE PROCEDURE GetEvenPlayerIDs IS
+    CURSOR c1 IS
+        SELECT PlayerID
+        FROM Player
+        WHERE MOD(TO_NUMBER(REGEXP_SUBSTR(PlayerID, '\d+$')), 2) = 0;
+BEGIN
+    FOR rec IN c1 LOOP
+        DBMS_OUTPUT.PUT_LINE('PlayerID: ' || rec.PlayerID);
+    END LOOP;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No even-numbered PlayerIDs found.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/
+🔹 Step 5: Insert Sample Data & Test
+-- Insert players
+INSERT INTO Player (PlayerID, PlayerName) VALUES ('PID012', 'Rohit');
+INSERT INTO Player (PlayerID, PlayerName) VALUES ('PID311', 'Virat');
+INSERT INTO Player (PlayerID, PlayerName) VALUES ('PID008', 'Dhoni');
+INSERT INTO Player (PlayerID, PlayerName) VALUES ('PID313', 'Gill');
+-- Insert matches (this will fire trigger automatically)
+INSERT INTO MatchTeam (MatchID, PlayerID) VALUES ('M001', 'PID012');
+INSERT INTO MatchTeam (MatchID, PlayerID) VALUES ('M002', 'PID012');
+INSERT INTO MatchTeam (MatchID, PlayerID) VALUES ('M003', 'PID008');
+COMMIT;
+🔹 Step 6: Test Outputs
+Check Player Table
+SELECT * FROM Player;
+PlayerID   PlayerName   TotalMatchesPlayed
+------------------------------------------
+PID012     Rohit        2
+PID311     Virat        0
+PID008     Dhoni        1
+PID313     Gill         0
+Check View
+SELECT * FROM PlayerMatchView;
+Output Example:
+PlayerID   PlayerName   TotalMatchesPlayed
+------------------------------------------
+PID012     Rohit        2
+PID311     Virat        0
+PID008     Dhoni        1
+PID313     Gill         0
+Run Procedure
+SET SERVEROUTPUT ON;
+EXEC GetEvenPlayerIDs;
+Output Example:
+PlayerID: PID012
+PlayerID: PID008
