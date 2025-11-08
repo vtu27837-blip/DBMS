@@ -1,0 +1,44 @@
+Identify employee attributes: Employee_ID, Name, Department, Job_Title, Manager_ID, 
+Hire_Date, Salary.
+2. Define relational schema: Employee (Employee_ID, Name, Department, Job_Title, 
+Manager_ID, Hire_Date, Salary).
+3. Determine functional dependencies (FDs) between attributes:
+- Employee_ID -> Name, Department, Job_Title, Manager_ID, Hire_Date, Salary
+- Department -> Manager_ID
+- Manager_ID -> Name
+Step 2: Convert to 1NF
+1. Eliminate repeating groups or arrays (none in this example).
+2. Create separate tables for each repeating group (none in this example).
+Step 3: Convert to 2NF
+1. Ensure each non-key attribute depends on the entire primary key.
+2. Move non-key attributes to separate tables if they depend on only part of the primary key.
+- Create Department table: Department (Department_ID, Manager_ID, Name).
+- Create Employee table: Employee (Employee_ID, Name, Department_ID, Job_Title, 
+Hire_Date, Salary).
+Step 4: Convert to 3NF
+1. Ensure there are no transitive dependencies.
+2. Move non-key attributes to separate tables if they depend on another non-key attribute.
+- Create Manager table: Manager (Manager_ID, Name).
+- Update Department table: Department (DepartmEnsure every determinant is a candidate key.
+2. Check for overlapping candidate keys.
+3. Decompose relations to eliminate redundancy.
+- No further decomposition needed.
+Using Griffith Tool
+1. Input relational schema and functional dependencies.
+2. Griffith tool generates a dependency graph.
+3. Analyze the graph to identify normalization issues.
+4. Apply normalization rules to transform the schema.
+5. Verify the resulting schema meets BCNF criteria.
+Griffith Tool Steps
+1. Create a new project in Griffith.
+2. Define the relational schema and FDs.
+3. Run the "Dependency Graph" tool.
+4. Analyze the graph for normalization issues.
+5. Apply transformations using the "Normalize" tool.
+6. Verify BCNF compliance using the "BCNF Check" tool.
+Normalized Schema
+1. Employee (Employee_ID, Name, Department_ID, Job_Title, Hire_Date, Salary).
+2. Department (Department_ID, Manager_ID).
+3. Manager (Manager_ID, Name).
+Result:
+Thus the Normalization concepts are derived successfullyent_ID, Manager_ID).
