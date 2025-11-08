@@ -1,0 +1,77 @@
+include <stdlib.h>
+int main()
+{
+    int a[100];
+    int element,i,loc,size,n,j,choice;
+        printf("C Program to Insert and Delete an Element in an Array using switch case\n");
+     printf("Enter the size of an array\n");
+        scanf("%d",&size);
+        printf("Enter %d array elements\n",size);
+        for(i=0;i<size;i++)
+        {
+           scanf("%d",&a[i]);
+        }
+
+while (1) {
+    printf("\n 1. Insertion\n");
+    printf("2. Deletion\n");
+    printf("3. Display\n");
+    printf("4. Exit\n");
+    printf("Select your choice : ");
+    scanf("%d",&choice);
+        switch(choice)
+    {
+    case 1:
+        printf("\nEnter an element to insert\n");
+        scanf("%d",&element);
+        printf("Enter a position to insert an element %d\n",element);
+        scanf("%d",&loc);
+        loc--;
+        for(i=size-1;i>=loc;i--)
+        {
+            a[i+1]=a[i];
+        }
+        a[loc]=element;
+        printf("List after Insertion: \n");
+        for(i=0;i<size+1;i++)
+        {
+          printf("%d ",a[i]);
+        }
+         break;
+    case 2:
+        printf("\nEnter an element to delete\n");
+        scanf("%d",&n);
+        for(i=0;i<size;i++)
+        {
+            if(a[i]==n)
+            {
+                for(j=i;j<(size-1);j++)
+                {
+                    a[j]=a[j+1];
+                }
+                break;
+            }
+        }
+        printf("List after deletion\n");
+        for(i=0;i<(size-1);i++)
+        {
+            printf("%d ",a[i]);
+        }
+        break;
+      case 3:
+        printf("The elements in the array are: \n ");
+        for(i=0;i<size;i++)
+        {
+            printf("%d ",a[i]);
+        }
+        break;
+    case 4:
+            printf("Exiting program.\n");
+            return 0;
+    default:
+        printf("Wrong choice, Please try again later");
+    }
+}
+    return 0;
+}
+OUTPUT:
